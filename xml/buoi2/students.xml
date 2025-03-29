@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<students>
+            
+    
+    <student id="1">
+                        
+        
+        <name>Nguyen Van A</name>
+                        
+        
+        <age>20</age>
+                        
+        
+        <class>KTPM01</class>
+                    
+    
+    </student>
+            
+    
+    <student id="2">
+                        
+        
+        <name>Tran Thi B</name>
+                        
+        
+        <age>21</age>
+                        
+        
+        <class>KTPM02</class>
+                    
+    
+    </student>
+            
+    
+    <student id="3">
+                        
+        
+        <name>Le Van C</name>
+                        
+        
+        <age>22</age>
+                        
+        
+        <class>KTPM03</class>
+                    
+    
+    </student>
+            
+    
+    
+    <student id="5">
+                        
+        
+        <name>Thủy</name>
+                        
+        
+        <age>22</age>
+                        
+        
+        <class>ite</class>
+                    
+    
+    </student>
+        
+
+</students>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<products>
+  <product>
+    <name>Guitar</name>
+    <price>1000</price>
+  </product>
+  <product>
+    <name>Flute</name>
+    <price>500</price>
+  </product>
+</products>
+
