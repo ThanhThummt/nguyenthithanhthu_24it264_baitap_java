@@ -1,0 +1,56 @@
+<books>
+    <book id="1">
+        <title>Tên sách 1</title>
+        <author>Tác giả 1</author>
+        <year>2023</year>
+        <publisher>Nhà xuất bản A</publisher>
+        <pages>300</pages>
+        <genre>Văn học</genre>
+        <price>150000</price>
+        <isbn>978-3-16-148410-0</isbn>
+    </book>
+    
+    <book id="2">
+        <title>Tên sách 2</title>
+        <author>Tác giả 2</author>
+        <year>2021</year>
+        <publisher>Nhà xuất bản B</publisher>
+        <pages>250</pages>
+        <genre>Khoa học</genre>
+        <price>200000</price>
+        <isbn>978-1-23-456789-7</isbn>
+    </book>
+    
+    <book id="3">
+        <title>Tên sách 3</title>
+        <author>Tác giả 3</author>
+        <year>2020</year>
+        <publisher>Nhà xuất bản C</publisher>
+        <pages>400</pages>
+        <genre>Kinh tế</genre>
+        <price>180000</price>
+        <isbn>978-0-12-345678-9</isbn>
+    </book>
+    
+    <book id="4">
+        <title>Tên sách 4</title>
+        <author>Tác giả 4</author>
+        <year>2019</year>
+        <publisher>Nhà xuất bản D</publisher>
+        <pages>320</pages>
+        <genre>Kỹ thuật</genre>
+        <price>220000</price>
+        <isbn>978-4-56-123789-0</isbn>
+    </book>
+    
+    <book id="5">
+        <title>Tên sách 5</title>
+        <author>Tác giả 5</author>
+        <year>2022</year>
+        <publisher>Nhà xuất bản E</publisher>
+        <pages>280</pages>
+        <genre>Lịch sử</genre>
+        <price>175000</price>
+        <isbn>978-9-87-654321-0</isbn>
+    </book>
+</books>
