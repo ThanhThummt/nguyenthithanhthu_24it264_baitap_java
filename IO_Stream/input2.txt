@@ -1,0 +1,2 @@
+Goodbye from input2.txt
+This is the third file.

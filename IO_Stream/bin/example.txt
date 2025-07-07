@@ -1,0 +1,160 @@
+#include <iostream>
+using namespace std;
+
+struct Node {
+    int coeff;
+    int pow;
+    Node* next;
+};
+
+Node* createNode(int c, int p) {
+    Node* newNode = new Node();
+    newNode->coeff = c;
+    newNode->pow = p;
+    newNode->next = nullptr;// Node mới chưa nối với node nào khác,  vì hiện tại nó là node đơn lẻ.
+    return newNode;
+}
+
+// a) Nhập đa thức
+void insertTerm(Node* &poly, int coeff, int pow) {
+    Node* newNode = createNode(coeff, pow);
+    if (!poly || pow > poly->pow) {
+        newNode->next = poly;
+        poly = newNode;
+    } else {
+        Node* temp = poly;
+        Node* prev = nullptr;
+        while (temp && temp->pow > pow) {
+            prev = temp;
+            temp = temp->next;
+        }
+
+        if (temp && temp->pow == pow) {
+            temp->coeff += coeff;
+        } else {
+            newNode->next = temp;
+            if (prev)
+                prev->next = newNode;
+        }
+    }
+}
+
+// b) In đa thức
+void printPolynomial(Node* poly) {
+    if (!poly) {
+        cout << "0";
+        return;
+    }
+
+    while (poly) {
+        if (poly->coeff > 0 && poly != nullptr)
+            cout << (poly != nullptr ? "+" : "");
+        cout << poly->coeff << "x^" << poly->pow << " ";
+        poly = poly->next;
+    }
+    cout << endl;
+}
+
+// c) Cộng hai đa thức
+Node* addPolynomials(Node* poly1, Node* poly2) {
+    Node* result = nullptr;
+
+    while (poly1 && poly2) {
+        if (poly1->pow > poly2->pow) {
+            insertTerm(result, poly1->coeff, poly1->pow);
+            poly1 = poly1->next;
+        } else if (poly1->pow < poly2->pow) {
+            insertTerm(result, poly2->coeff, poly2->pow);
+            poly2 = poly2->next;
+        } else {
+            insertTerm(result, poly1->coeff + poly2->coeff, poly1->pow);
+            poly1 = poly1->next;
+            poly2 = poly2->next;
+        }
+    }
+
+    while (poly1) {
+        insertTerm(result, poly1->coeff, poly1->pow);
+        poly1 = poly1->next;
+    }
+
+    while (poly2) {
+        insertTerm(result, poly2->coeff, poly2->pow);
+        poly2 = poly2->next;
+    }
+
+    return result;
+}
+
+// d) Trừ hai đa thức
+Node* subtractPolynomials(Node* poly1, Node* poly2) {
+    Node* result = nullptr;
+
+    while (poly1 && poly2) {
+        if (poly1->pow > poly2->pow) {
+            insertTerm(result, poly1->coeff, poly1->pow);
+            poly1 = poly1->next;
+        } else if (poly1->pow < poly2->pow) {
+            insertTerm(result, -poly2->coeff, poly2->pow);
+            poly2 = poly2->next;
+        } else {
+            insertTerm(result, poly1->coeff - poly2->coeff, poly1->pow);
+            poly1 = poly1->next;
+            poly2 = poly2->next;
+        }
+    }
+
+    while (poly1) {
+        insertTerm(result, poly1->coeff, poly1->pow);
+        poly1 = poly1->next;
+    }
+
+    while (poly2) {
+        insertTerm(result, -poly2->coeff, poly2->pow);
+        poly2 = poly2->next;
+    }
+
+    return result;
+}
+
+// Nhập từ bàn phím
+void inputPolynomial(Node* &poly) {
+    int n;
+    cout << "Enter number of terms: ";
+    cin >> n;
+
+    for (int i = 0; i < n; ++i) {
+        int coeff, pow;
+        cout << "Enter coeff and power: ";
+        cin >> coeff >> pow;
+        insertTerm(poly, coeff, pow);
+    }
+}
+
+// Main chương trình
+int main() {
+    Node* poly1 = nullptr;
+    Node* poly2 = nullptr;
+
+    cout << "--- Input First Polynomial ---\n";
+    inputPolynomial(poly1);
+
+    cout << "--- Input Second Polynomial ---\n";
+    inputPolynomial(poly2);
+
+    cout << "\nPolynomial 1: ";
+    printPolynomial(poly1);
+
+    cout << "Polynomial 2: ";
+    printPolynomial(poly2);
+
+    Node* sum = addPolynomials(poly1, poly2);
+    cout << "Sum: ";
+    printPolynomial(sum);
+
+    Node* diff = subtractPolynomials(poly1, poly2);
+    cout << "Difference (poly1 - poly2): ";
+    printPolynomial(diff);
+
+    return 0;
+}
